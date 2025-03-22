@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转到Google搜索</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+    </style>
+    <script>
+        // 获取用户输入的搜索词并在新标签页中打开Google搜索
+        function redirectToGoogle() {
+            var searchQuery = document.getElementById('searchQuery').value;
+            if (searchQuery) {
+                var url = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+                window.open(url, '_blank'); // 在新标签页中打开
+            } else {
+                alert('请输入搜索词');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Google搜索跳转</h1>
+        <p>请输入您想要搜索的内容：</p>
+        <input type="text" id="searchQuery" placeholder="输入搜索词">
+        <button onclick="redirectToGoogle()">搜索</button>
+    </div>
+</body>
+</html>
