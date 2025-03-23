@@ -64,14 +64,70 @@
                 alert('请输入搜索词');
             }
         }
+         
+            .return-btn {
+    background: linear-gradient(135deg, #1a237e, #0d47a1);
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.25);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important; /* 新增关键代码 */
+}
+
+/* 确保所有交互状态都不显示下划线 */
+.return-btn:hover,
+.return-btn:focus,
+.return-btn:active {
+    text-decoration: none !important;
+}
+       
+       .return-btn span {
+    position: relative;
+}
+
+.return-btn:hover span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    animation: underlineSlide 0.3s ease;
+}
+
+@keyframes underlineSlide {
+    from { width: 0 }
+    to { width: 100% }
+}
+      
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Google搜索跳转</h1>
+        <h1>Google搜索跳转</h1>  
         <p>请输入您想要搜索的内容：</p>
         <input type="text" id="searchQuery" placeholder="输入搜索词">
         <button onclick="redirectToGoogle()">搜索</button>
     </div>
 </body>
+
+<div class="return-container">
+    <a href="https://eel.tools" target="_blank" class="return-btn">
+        <svg class="home-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+        </svg>
+        <span>返回工具箱官网</span>
+    </a>
+</div>
+
 </html>
