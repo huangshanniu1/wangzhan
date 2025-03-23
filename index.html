@@ -112,6 +112,52 @@
             0% { transform: translate(-50%, -50%) rotate(0deg); }
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
+        @media screen and (max-width: 768px) {
+    /* 移动端顶栏优化 */
+    .navbar {
+        height: 50px;
+        padding: 0 1rem;
+    }
+
+    .nav-menu {
+        gap: 0.8rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 12px;
+        white-space: nowrap;
+    }
+
+    /* 隐藏滚动条（可选） */
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 内容区域高度调整 */
+    .content-frame {
+        height: calc(100vh - 50px);
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0 0.5rem;
+    }
+    
+    .nav-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        padding: 4px 8px;
+    }
+}
     </style>
 </head>
 <body>
