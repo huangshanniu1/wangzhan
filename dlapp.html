@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEL-工具箱 代理工具推荐</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin: 30px 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .app-name {
+            color: #1a73e8;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .platform-tags {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .android { background: #e8f5e9; color: #2e7d32; }
+        .ios { background: #f5f5f5; color: #000; }
+        .pc { background: #e3f2fd; color: #0d47a1; }
+
+        .official-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .official-link:hover {
+            background: #1557b0;
+        }
+        
+        .category-title {
+    color: #666;
+    margin: 25px 0 15px;
+    width: 100%;
+    padding-left: 10px;
+    border-left: 4px solid #1a73e8;
+    }
+    
+    /* 新增在原有样式部分 */
+.return-container {
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+.return-btn {
+    background: linear-gradient(135deg, #1a237e, #0d47a1);
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.25);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+.return-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 25%, 
+        rgba(255,255,255,0.1) 50%, 
+        transparent 75%
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+    text-decoration: none !important;
+}
+
+.return-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 35, 126, 0.35);
+    text-decoration: none !important;
+}
+
+.return-btn:hover::after {
+    opacity: 1;
+    animation: shine 1.5s;
+    text-decoration: none !important;
+}
+
+.home-icon {
+    transition: transform 0.3s;
+}
+
+.return-btn:hover .home-icon {
+    transform: scale(1.1);
+    text-decoration: none !important;
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+.return-btn span {
+    position: relative;
+    text-decoration: none !important;
+}
+
+.return-btn:hover span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    animation: underlineSlide 0.3s ease;
+    text-decoration: none !important;
+}
+
+@keyframes underlineSlide {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+    </style>
+</head>
+<body>
+<div class="card-container">
+    <!-- V2Ray系列 -->
+    <h3 class="category-title">V2Ray 客户端</h3>
+    <div class="card">
+        <h2 class="app-name">V2rayN</h2>
+        <p>Windows平台下的V2Ray客户端，简单易用，适合新手</p>
+        <div class="platform-tags">
+            <span class="tag pc">
+                <i class="fas fa-desktop"></i>
+                PC
+            </span>
+        </div>
+        <a href="https://github.com/2dust/v2rayN" class="official-link" target="_blank">官网/下载</a>
+    </div>
+
+    <div class="card">
+        <h2 class="app-name">V2rayNG</h2>
+        <p>Android平台V2Ray客户端，轻量级且支持多种协议</p>
+        <div class="platform-tags">
+            <span class="tag android">
+                <i class="fab fa-android"></i>
+                Android
+            </span>
+        </div>
+        <a href="https://github.com/2dust/v2rayNG" class="official-link" target="_blank">官网/下载</a>
+    </div>
+
+    <!-- Clash系列 -->
+    <h3 class="category-title">Clash 客户端</h3>
+    <div class="card">
+        <h2 class="app-name">Clash</h2>
+        <p>支持多平台代理客户端，功能强大，支持规则自定义</p>
+        <div class="platform-tags">
+            <span class="tag android">
+                <i class="fab fa-android"></i>
+                Android
+            </span>
+            <span class="tag pc">
+                <i class="fas fa-desktop"></i>
+                PC
+            </span>
+            <span class="tag ios">
+                <i class="fab fa-apple"></i>
+                iOS
+            </span>
+        </div>
+        <a href="https://github.com/Dreamacro/clash" class="official-link" target="_blank">官网/下载</a>
+    </div>
+
+    <div class="card">
+        <h2 class="app-name">Clash for Android</h2>
+        <p>Android专用Clash客户端，界面现代化</p>
+        <div class="platform-tags">
+            <span class="tag android">
+                <i class="fab fa-android"></i>
+                Android
+            </span>
+        </div>
+        <a href="https://github.com/Kr328/ClashForAndroid" class="official-link" target="_blank">官网/下载</a>
+    </div>
+
+    <!-- iOS专用 -->
+        <h3 class="category-title">iOS</h3>
+    <div class="card">
+        <h2 class="app-name">Shadowrocket</h2>
+        <p>iOS平台优秀的代理工具，支持多种协议</p>
+        <div class="platform-tags">
+            <span class="tag ios">
+                <i class="fab fa-apple"></i>
+                iOS
+            </span>
+        </div>
+        <a href="https://apps.apple.com/app/shadowrocket/id932747118" class="official-link" target="_blank">App Store</a>
+    </div>
+</div>
+</body>
+<div class="return-container">
+    <a href="https://eel.tools" target="_blank" class="return-btn">
+        <svg class="home-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+        </svg>
+        <span>返回工具箱官网</span>
+    </a>
+</div>
+</html>
