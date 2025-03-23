@@ -9,23 +9,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
+            position: relative;
+            padding-bottom: 80px; /* 底部留出按钮空间 */
         }
+
         .container {
             text-align: center;
             background-color: #ffffff;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
             color: #333333;
         }
+
         input[type="text"] {
             width: 300px;
             padding: 10px;
@@ -34,11 +43,14 @@
             border-radius: 5px;
             margin-bottom: 20px;
             outline: none;
+            transition: all 0.3s ease;
         }
+
         input[type="text"]:focus {
             border-color: #4a90e2;
             box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -49,71 +61,80 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #357abd;
         }
-    
+
+        /* 返回按钮容器 */
+        .return-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            padding: 0 20px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .return-btn {
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(26, 35, 126, 0.25);
+            text-decoration: none;
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .return-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 35, 126, 0.35);
+        }
+
+        /* 手机适配 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.3em;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                max-width: 280px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
             .return-btn {
-    background: linear-gradient(135deg, #1a237e, #0d47a1);
-    color: white;
-    padding: 14px 35px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.1em;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.25);
-    position: relative;
-    overflow: hidden;
-    text-decoration: none !important; /* 新增关键代码 */
-}
+                padding: 10px 20px;
+                font-size: 0.9em;
+                max-width: 250px;
+            }
 
-/* 确保所有交互状态都不显示下划线 */
-.return-btn:hover,
-.return-btn:focus,
-.return-btn:active {
-    text-decoration: none !important;
-}
-       
-       .return-btn span {
-    position: relative;
-}
-
-.return-btn:hover span::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background: white;
-    animation: underlineSlide 0.3s ease;
-}
-
-@keyframes underlineSlide {
-    from { width: 0 }
-    to { width: 100% }
-}
-      
-
-    
-    </style>
-    <script>
-        // 获取用户输入的搜索词并在新标签页中打开Google搜索
-        function redirectToGoogle() {
-            var searchQuery = document.getElementById('searchQuery').value;
-            if (searchQuery) {
-                var url = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
-                window.open(url, '_blank'); // 在新标签页中打开
-            } else {
-                alert('请输入搜索词');
+            .return-container {
+                bottom: 15px;
             }
         }
-        
-    </script>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -122,15 +143,27 @@
         <input type="text" id="searchQuery" placeholder="输入搜索词">
         <button onclick="redirectToGoogle()">搜索</button>
     </div>
+
+    <!-- 返回按钮 -->
+    <div class="return-container">
+        <a href="index.html" class="return-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+                <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+            </svg>
+            <span>返回工具箱官网</span>
+        </a>
+    </div>
+
+    <script>
+        function redirectToGoogle() {
+            var searchQuery = document.getElementById('searchQuery').value;
+            if (searchQuery) {
+                var url = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+                window.open(url, '_blank');
+            } else {
+                alert('请输入搜索词');
+            }
+        }
+    </script>
 </body>
-
-<div class="return-container">
-    <a href="index.html" target="_blank" class="return-btn">
-        <svg class="home-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
-        </svg>
-        <span>返回工具箱官网</span>
-    </a>
-</div>
-
 </html>
