@@ -52,19 +52,7 @@
         button:hover {
             background-color: #357abd;
         }
-    </style>
-    <script>
-        // 获取用户输入的搜索词并在新标签页中打开Google搜索
-        function redirectToGoogle() {
-            var searchQuery = document.getElementById('searchQuery').value;
-            if (searchQuery) {
-                var url = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
-                window.open(url, '_blank'); // 在新标签页中打开
-            } else {
-                alert('请输入搜索词');
-            }
-        }
-         
+    
             .return-btn {
     background: linear-gradient(135deg, #1a237e, #0d47a1);
     color: white;
@@ -110,6 +98,21 @@
     to { width: 100% }
 }
       
+
+    
+    </style>
+    <script>
+        // 获取用户输入的搜索词并在新标签页中打开Google搜索
+        function redirectToGoogle() {
+            var searchQuery = document.getElementById('searchQuery').value;
+            if (searchQuery) {
+                var url = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+                window.open(url, '_blank'); // 在新标签页中打开
+            } else {
+                alert('请输入搜索词');
+            }
+        }
+        
     </script>
 </head>
 <body>
